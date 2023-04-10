@@ -15,7 +15,7 @@ const Tab = createBottomTabNavigator();
 
 const Main = () => {
     return(
-        <View style = {{marginTop : Constants.statusBarHeight, flexGrow : 1}}>
+        <View style = {{ flexGrow : 1}}>
             <StatusBar
                 barStyle = "dark-content"
                 translucent = {false}
