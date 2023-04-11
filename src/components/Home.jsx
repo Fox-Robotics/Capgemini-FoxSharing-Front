@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     padding: "6%",
     width:"80%",
     backgroundColor: "black",
-    borderRadius: "100%",
+    borderRadius: 100,
     display: "flex",
   },
   searchButtonText:{
@@ -93,6 +93,6 @@ const styles = StyleSheet.create({
     color: "white",
     padding: "6%",
     backgroundColor: "black",
-    borderRadius: "100%",
+    borderRadius: 100,
   }
 })
