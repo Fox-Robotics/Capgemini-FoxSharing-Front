@@ -1,5 +1,4 @@
 import React from 'react'
-import Constants from 'expo-constants'
 import {View, StatusBar} from 'react-native'
 import Cuenta from './Cuenta'
 import Home from "./Home"
