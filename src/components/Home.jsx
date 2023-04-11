@@ -1,11 +1,12 @@
 import { View, StyleSheet,TextInput, Dimensions, Text, Pressable} from 'react-native'
 import React from 'react'
-import {useState} from "react"
+import {useState, useRef} from "react"
 import MapView, {Marker} from 'react-native-maps'
 import RBSheet from "react-native-raw-bottom-sheet";
 
 
 export default function Home() {
+    const refRBSheet = useRef();
   const [origin, setOrigin] =  useState({
     latitude: 20.654522,
     longitude: -103.392398
@@ -29,26 +30,29 @@ export default function Home() {
         />
       </MapView>
         <View style={styles.searchButtonContainer}>
-            <Pressable style={styles.searchButton} onPress={() => this.RBSheet.open()}>
+            <Pressable style={styles.searchButton} onPress={() => refRBSheet.current.open()}>
                 <Text style={styles.searchButtonText}>¿A dónde vas?</Text>
             </Pressable>
         </View>
+
         <RBSheet
-          ref={ref => {
-            this.RBSheet = ref;
-          }}
-          height={(85*height)/100}
+          ref={refRBSheet}
+          keyboardAvoidingViewEnabled= {false}
+          dragFromTopOnly={false}
+          closeOnDragDown={true}
+          height={(90*height)/100}
           openDuration={250}
           customStyles={{
             container: {
-              justifyContent: "center",
-              alignItems: "center"
+                display: "flex",
+                padding: "5%"
             }
           }}
         >
-          <TextInput
-                style={{}}
+        <TextInput
+                style={styles.searchInputText}
                 placeholder="ESTO ES UN INPUT"
+                placeholderTextColor={'#dddddd'}
                 onChangeText={newText => setText(newText)}
                 defaultValue={text}
             />
@@ -84,5 +88,11 @@ const styles = StyleSheet.create({
   },
   searchButtonText:{
     color: "white"
+  },
+  searchInputText:{
+    color: "white",
+    padding: "6%",
+    backgroundColor: "black",
+    borderRadius: "100%",
   }
 })
