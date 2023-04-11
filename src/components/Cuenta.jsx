@@ -18,13 +18,11 @@ const styles = StyleSheet.create(
             overflow: "hidden",
         },
         subtle: {
-            fontFamily: theme.fonts.main,
             fontSize: 14,
             paddingTop: 10,
             opacity: 0.4,
         },
         bigBold: {
-            fontFamily: theme.fonts.main,
             fontSize: 32,
             fontWeight : theme.fontWeights.bold,
         },
