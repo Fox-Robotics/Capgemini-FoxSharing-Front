@@ -5,12 +5,10 @@ import Cuenta from './Cuenta'
 import Home from "./Home"
 import Historial from "./Historial"
 import Wallet from "./Wallet"
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 import { Ionicons } from '@expo/vector-icons';
 
-const Stack = createNativeStackNavigator();
+
 const Tab = createBottomTabNavigator();
 
 const Main = () => {
