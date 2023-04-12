@@ -5,6 +5,7 @@ import LogIn from "./src/components/LogIn.jsx";
 import Registro from "./src/components/Registro.jsx";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TwoFactorAuth from "./src/components/TwoFactorAuth.jsx";
+import SheetContent from "./src/components/RenderContent.jsx";
 
 const Stack = createNativeStackNavigator();
 
