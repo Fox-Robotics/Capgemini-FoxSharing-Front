@@ -7,6 +7,7 @@ export default function Registro({navigation}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
     const [verifyPassword, setVerifyPassword] = useState("");
     
     function manejoRegistro() {
@@ -16,7 +17,7 @@ export default function Registro({navigation}) {
             return;
         }
         // Continua con el proceso de registro
-        navigation.navigate("Login");
+        navigation.navigate("Auth");
     }
     
     return(
@@ -37,6 +38,13 @@ export default function Registro({navigation}) {
             />
             <TextInput
               style = {styles.input}
+              placeholder="Teléfono"
+              value = {phone}
+              onChangeText={(text) => setPhone(text)}
+              secureTextEntry
+            />
+            <TextInput
+              style = {styles.input}
               placeholder="Contraseña"
               value = {password}
               onChangeText={(text) => setPassword(text)}
@@ -44,7 +52,7 @@ export default function Registro({navigation}) {
             />
             <TextInput
               style = {styles.input}
-              placeholder="Confirmar Contraseña"
+              placeholder="Confirmar contraseña"
               value = {verifyPassword}
               onChangeText={(text) => setVerifyPassword(text)}
               secureTextEntry
