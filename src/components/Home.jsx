@@ -3,7 +3,7 @@ import React from 'react'
 import {useState, useRef} from "react"
 import MapView, {Marker} from 'react-native-maps'
 import RBSheet from "react-native-raw-bottom-sheet";
-
+import SheetContent from './RenderContent';
 
 export default function Home() {
     const refRBSheet = useRef();
@@ -49,13 +49,7 @@ export default function Home() {
             }
           }}
         >
-        <TextInput
-                style={styles.searchInputText}
-                placeholder="ESTO ES UN INPUT"
-                placeholderTextColor={'#dddddd'}
-                onChangeText={newText => setText(newText)}
-                defaultValue={text}
-            />
+        <SheetContent/>
         </RBSheet>
     </View>
   )
