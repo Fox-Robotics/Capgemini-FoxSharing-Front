@@ -29,14 +29,12 @@ const styles = StyleSheet.create (
     },
 
     cash: {
-      fontFamily: theme.fonts.main,
       color: theme.colors.c1,
       fontWeight: theme.fontWeights.normal,
       fontSize: 20,
     },
 
     fondos: {
-      fontFamily: theme.fonts.main,
       color: theme.colors.c1,
       fontWeight: theme.fontWeights.bold,
       fontSize: 30,
@@ -52,7 +50,6 @@ const styles = StyleSheet.create (
     },
 
     agregar: {
-      fontFamily: theme.fonts.normal,
     },
 
     cuponesContainer: {
@@ -62,12 +59,9 @@ const styles = StyleSheet.create (
       display: "flex",
       flexDirection: "column",
       justifyContent: 'center',
-      
-
     },
     
     cuponesText: {
-      fontFamily: theme.fonts.main,
       color: theme.colors.c1,
       fontWeight: theme.fontWeights.bold,
       fontSize: 25,
@@ -85,7 +79,6 @@ const styles = StyleSheet.create (
 
       paddingTop: 20
     }
-
   }
 
 )
