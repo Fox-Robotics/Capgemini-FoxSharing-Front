@@ -14,6 +14,10 @@ export default function Registro({navigation}) {
     function manejoRegistro() {
         // Lógica de registro
         if (password !== verifyPassword) {
+          if(email == '' || name == '' || password == ''){ 
+            Alert.alert('Error', 'Llene todos los campos necesarios.')
+            return;
+          }
             Alert.alert('Error', 'Las contraseñas no coinciden. Inténtelo de nuevo.')
             return;
         }
