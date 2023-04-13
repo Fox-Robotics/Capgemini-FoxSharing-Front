@@ -6,6 +6,8 @@ import Registro from "./src/components/Registro.jsx";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TwoFactorAuth from "./src/components/TwoFactorAuth.jsx";
 import CarInfo from "./src/components/CarInfo.jsx";
+import {LogBox} from 'react-native';
+LogBox.ignoreAllLogs();
 
 const Stack = createNativeStackNavigator();
 
