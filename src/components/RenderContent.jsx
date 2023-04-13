@@ -8,8 +8,8 @@ import axios from 'axios';
 
 
 const vehiculos = [
-    {nombre: 'Nissan Versa Sense TM', minutos: 5, imagen: 'https://imgur.com/aWeyhz5.jpg', transmision: 'Automática', pasajeros: 4, localizacion: 'Avenida Mariano Otero, 1499'},
-    {nombre: 'Ford Explorer XLT', minutos: 7, imagen: 'https://imgur.com/S82J1p1.jpg', transmision: 'Automática', pasajeros: 8, localizacion: 'Avenida Mariano Otero, 1499'}
+    {nombre: 'Nissan Versa Sense TM', minutos: 5, imagen: 'https://imgur.com/aWeyhz5.jpg', transmision: 'Automática', pasajeros: 4, localizacion: 'Avenida Mariano Otero, 1499', tarifaKm: 3.57},
+    {nombre: 'Ford Explorer XLT', minutos: 7, imagen: 'https://imgur.com/S82J1p1.jpg', transmision: 'Automática', pasajeros: 8, localizacion: 'Avenida Mariano Otero, 1499', tarifaKm: 4}
 ]
 
 const SheetContent = (props) => {
@@ -75,7 +75,7 @@ const SheetContent = (props) => {
                     style = {{width: '100%'}}
                     data={vehiculos}
                     renderItem={({ item }) => (
-                        <Vehiculo nombre={item.nombre} minutos={item.minutos} imagen={item.imagen} transmision={item.transmision} pasajeros = {item.pasajeros} localizacion = {item.localizacion} navigation={props.navigation} refRBSheet={props.refRBSheet}/>
+                        <Vehiculo nombre={item.nombre} minutos={item.minutos} imagen={item.imagen} transmision={item.transmision} pasajeros = {item.pasajeros} localizacion = {item.localizacion} tarifaKm = {item.tarifaKm} navigation={props.navigation} refRBSheet={props.refRBSheet}/>
                     )}
                     keyExtractor={(item, index) => index.toString()}
                     />

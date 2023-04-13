@@ -4,8 +4,19 @@ import theme from '../theme';
 import InfoBox from './InfoBox';
 import ReservarBoton from './ReservarBoton';
 
+function calculaPrecio(tarifaKm){
+    let tarifaTiempo = 1.8;
+    let tarifaBase = 60;
+    let km = 20.6;
+    let mins = 20;
+    let precio = tarifaKm*km + tarifaTiempo*mins + tarifaBase;
+    precio = Math.trunc(precio*Math.pow(10, 2))/Math.pow(10, 2)
+
+    return precio;
+}
+
 export default function CarInfo ({route, navigation}) {
-    const {nombre, minutos, imagen, transmision, pasajeros, localizacion} = route.params;
+    const {nombre, minutos, imagen, transmision, pasajeros, localizacion, tarifaKm} = route.params;
     return(
         <View style = {styles.container}>
             <Text style = {styles.h1}>{nombre}</Text>
@@ -26,6 +37,7 @@ export default function CarInfo ({route, navigation}) {
                     <View>
                         <InfoBox dato={localizacion} info='Localización'/>
                         <InfoBox dato={(minutos + ' minuto(s) caminando.')} info='Distancia'/>
+                        <InfoBox dato={('MXN $' + calculaPrecio(tarifaKm))} info='Tarifa'/>
                     </View>
                 </View>
                 <View style = {{justifyContent: 'space-between'}}>
