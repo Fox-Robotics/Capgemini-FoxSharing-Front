@@ -45,11 +45,7 @@ const SheetContent = (props) => {
 
     const [showInfo, setShowInfo] = useState(false);
     const [text, setText] = useState('');
-    const [destinos, setDestinos] =  useState([
-        {nombre: 'Expo Guadalajara', direccion: 'Av. Mariano Otero 1499, Verde Valle, 44550 Guadalajara, Jal.'},
-        {nombre: 'Expo Guadalajara', direccion: 'Av. Mariano Otero 1499, Verde Valle, 44550 Guadalajara, Jal.'},
-        {nombre: 'Expo Guadalajara', direccion: 'Av. Mariano Otero 1499, Verde Valle, 44550 Guadalajara, Jal.'},
-    ]);
+    const [destinos, setDestinos] =  useState([]);
     const LocationSelectToggle = () => {
         setShowInfo(prevState => !prevState);
     }
@@ -79,7 +75,7 @@ const SheetContent = (props) => {
                     style = {{width: '100%'}}
                     data={vehiculos}
                     renderItem={({ item }) => (
-                        <Vehiculo nombre={item.nombre} minutos={item.minutos} imagen={item.imagen} transmision={item.transmision} pasajeros = {item.pasajeros} localizacion = {item.localizacion} navigation={props.navigation}/>
+                        <Vehiculo nombre={item.nombre} minutos={item.minutos} imagen={item.imagen} transmision={item.transmision} pasajeros = {item.pasajeros} localizacion = {item.localizacion} navigation={props.navigation} refRBSheet={props.refRBSheet}/>
                     )}
                     keyExtractor={(item, index) => index.toString()}
                     />

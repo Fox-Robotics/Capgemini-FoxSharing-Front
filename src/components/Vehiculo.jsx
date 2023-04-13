@@ -2,11 +2,11 @@ import React from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import theme from '../theme'
 
-const Vehiculo = ({nombre, minutos, imagen, transmision, pasajeros, localizacion, navigation}) => {
+const Vehiculo = ({refRBSheet, nombre, minutos, imagen, transmision, pasajeros, localizacion, navigation}) => {
     return(
         <View style = {styles.container}>
             <Image source={{ uri: imagen }} style={styles.car} />
-            <TouchableOpacity style = {styles.textContainer} activeOpacity={0.7} onPress={() => navigation.navigate('Car',{nombre, minutos, imagen, transmision, pasajeros, localizacion})}>
+            <TouchableOpacity style = {styles.textContainer} activeOpacity={0.7} onPress={() => {refRBSheet.current.close();  navigation.navigate('Car',{nombre, minutos, imagen, transmision, pasajeros, localizacion})  }}>
                 <View>
                     <Text style = {styles.name}>{nombre}</Text>
                     <Text>{minutos} minutos caminando</Text>

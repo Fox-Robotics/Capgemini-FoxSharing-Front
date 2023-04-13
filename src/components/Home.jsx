@@ -75,7 +75,7 @@ export default function Home({navigation}) {
             }
           }}
         >
-        <SheetContent navigation={navigation} location={location} setRoute={setRoute}/>
+        <SheetContent navigation={navigation} location={location} setRoute={setRoute} refRBSheet={refRBSheet}/>
         </RBSheet>
     </View>
   )
