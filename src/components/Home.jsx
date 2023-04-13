@@ -22,7 +22,7 @@ export default function Home({navigation}) {
       }
       let location = await Location.getCurrentPositionAsync({});
       setLocation( {"longitude": location["coords"]["longitude"], "latitude": location["coords"]["latitude"]  });
-    }, 10000)
+    }, 10000000000)
   
   const refRBSheet = useRef();
   const [origin, setOrigin] =  useState({
