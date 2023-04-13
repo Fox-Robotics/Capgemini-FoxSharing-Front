@@ -26,7 +26,6 @@ export default function LogIn({navigation}) {
     const [password, setPass] = useState('');
     const login = () => {
         //Funcionalidad de logIn
-        navigation.navigate('Main');
         logInUser(email, password, navigation);
     };
     return(
