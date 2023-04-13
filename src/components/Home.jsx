@@ -6,6 +6,23 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import SheetContent from './RenderContent';
 import * as Location from "expo-location";
 
+
+
+function Line({route}) {
+  if(route != null){
+    return(
+        <Polyline
+        coordinates={route}
+        strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
+        strokeWidth={6}
+        />
+      )
+  }else{
+    return 
+  }
+}
+
+
 export default function Home({navigation}) {
   const [location, setLocation] = useState({
     latitude: 20.654522,
@@ -26,14 +43,14 @@ export default function Home({navigation}) {
 
   
   const refRBSheet = useRef();
-  const [origin, setOrigin] =  useState({
-    latitude: 20.654522,
-    longitude: -103.392398
-  });
+  const [origin, setOrigin] =  useState(
+  );
 
   const [route, setRoute] = useState();
 
   const { height } = Dimensions.get('window');
+
+
   return (
     <View>
       <MapView  
@@ -48,12 +65,7 @@ export default function Home({navigation}) {
         <Marker 
           coordinate={location}
         />
-
-        <Polyline
-          coordinates={route}
-          strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
-          strokeWidth={6}
-        />
+      <Line route={route}/> 
       </MapView>
         <View style={styles.searchButtonContainer}>
             <Pressable style={styles.searchButton} onPress={() => refRBSheet.current.open()}>
