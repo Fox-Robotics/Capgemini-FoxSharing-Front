@@ -1,32 +1,49 @@
 import { View, StyleSheet,TextInput, Dimensions, Text, Pressable} from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import {useState, useRef} from "react"
-import MapView, {Marker} from 'react-native-maps'
+import MapView, {Marker, Polyline} from 'react-native-maps'
 import RBSheet from "react-native-raw-bottom-sheet";
 import SheetContent from './RenderContent';
+import * as Location from "expo-location";
 
 export default function Home() {
-    const refRBSheet = useRef();
+  const [location, setLocation] = useState({
+    latitude: 20.654522,
+    longitude: -103.392398
+  });
+
+  var loc
+  setInterval(
+    async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        setErrorMsg('Permission to access location was denied');
+        return;
+      }
+      let location = await Location.getCurrentPositionAsync({});
+      setLocation( {"longitude": location["coords"]["longitude"], "latitude": location["coords"]["latitude"]  });
+    }, 10000)
+  
+  const refRBSheet = useRef();
   const [origin, setOrigin] =  useState({
     latitude: 20.654522,
     longitude: -103.392398
   });
 
   const { height } = Dimensions.get('window');
-  const [text, setText] = useState('');
   return (
     <View>
       <MapView  
         style={styles.map}
         initialRegion ={{
-          latitude: origin.latitude,
-          longitude: origin.longitude,
+          latitude: location.latitude,
+          longitude: location.longitude,
           latitudeDelta: 0.09,
           longitudeDelta: 0.04
         }}
       >
         <Marker 
-          coordinate={origin}
+          coordinate={location}
         />
       </MapView>
         <View style={styles.searchButtonContainer}>
