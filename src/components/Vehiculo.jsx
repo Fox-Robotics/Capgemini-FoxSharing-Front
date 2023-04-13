@@ -5,7 +5,7 @@ import theme from '../theme'
 const Vehiculo = ({refRBSheet, nombre, minutos, imagen, transmision, pasajeros, localizacion, tarifaKm,navigation}) => {
     return(
         <View>
-            <TouchableOpacity activeOpacity={0.7} onPress={() => {refRBSheet.current.close();  navigation.navigate('Car',{nombre, minutos, imagen, transmision, pasajeros, tarifaKm})  }}>
+            <TouchableOpacity activeOpacity={0.7} onPress={() => {refRBSheet.current.close();  navigation.navigate('Car',{nombre, minutos, imagen, transmision, pasajeros, localizacion, tarifaKm})  }}>
                 <View style = {styles.container}>
                     <Image source={{ uri: imagen }} style={styles.car} />
                         <View style = {styles.textContainer}>
