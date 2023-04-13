@@ -11,8 +11,8 @@ const destinos = [
     {nombre: 'Expo Guadalajara', direccion: 'Av. Mariano Otero 1499, Verde Valle, 44550 Guadalajara, Jal.'},
 ]
 const vehiculos = [
-    {nombre: 'Nissan Versa Sense TM', minutos: 5, imagen: 'https://imgur.com/aWeyhz5.jpg', transmision: 'automatica', pasajeros: 4, localizacion: 'Avenida Mariano Otero, 1499'},
-    {nombre: 'Ford Explorer XLT', minutos: 7, imagen: 'https://imgur.com/S82J1p1.jpg', transmision: 'automatica', pasajeros: 8, localizacion: 'Avenida Mariano Otero, 1499'}
+    {nombre: 'Nissan Versa Sense TM', minutos: 5, imagen: 'https://imgur.com/aWeyhz5.jpg', transmision: 'Automática', pasajeros: 4, localizacion: 'Avenida Mariano Otero, 1499'},
+    {nombre: 'Ford Explorer XLT', minutos: 7, imagen: 'https://imgur.com/S82J1p1.jpg', transmision: 'Automática', pasajeros: 8, localizacion: 'Avenida Mariano Otero, 1499'}
 ]
 
 const SheetContent = ({navigation}) => {
