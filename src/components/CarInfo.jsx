@@ -29,7 +29,7 @@ export default function CarInfo ({route, navigation}) {
                     </View>
                 </View>
                 <View style = {{justifyContent: 'space-between'}}>
-                    <TouchableOpacity activeOpacity={0.7}>
+                    <TouchableOpacity activeOpacity={0.7} onPress={() => navigation.navigate('Home')}>
                         <ReservarBoton/>
                     </TouchableOpacity>
                 </View>
