@@ -23,12 +23,15 @@ export default function Home({navigation}) {
       let location = await Location.getCurrentPositionAsync({});
       setLocation( {"longitude": location["coords"]["longitude"], "latitude": location["coords"]["latitude"]  });
     }, 10000000000)
+
   
   const refRBSheet = useRef();
   const [origin, setOrigin] =  useState({
     latitude: 20.654522,
     longitude: -103.392398
   });
+
+  const [route, setRoute] = useState();
 
   const { height } = Dimensions.get('window');
   return (
@@ -44,6 +47,12 @@ export default function Home({navigation}) {
       >
         <Marker 
           coordinate={location}
+        />
+
+        <Polyline
+          coordinates={route}
+          strokeColor="#000" // fallback for when `strokeColors` is not supported by the map-provider
+          strokeWidth={6}
         />
       </MapView>
         <View style={styles.searchButtonContainer}>
@@ -66,7 +75,7 @@ export default function Home({navigation}) {
             }
           }}
         >
-        <SheetContent navigation={navigation}/>
+        <SheetContent navigation={navigation} location={location} setRoute={setRoute}/>
         </RBSheet>
     </View>
   )
