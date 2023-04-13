@@ -3,6 +3,7 @@ import { TextInput, Text, TouchableOpacity, View, StyleSheet, FlatList } from 'r
 import Destino from './Destino';
 import { Ionicons } from '@expo/vector-icons';
 import theme from '../theme';
+import Vehiculo from './Vehiculo';
 
 const destinos = [
     {nombre: 'Expo Guadalajara', direccion: 'Av. Mariano Otero 1499, Verde Valle, 44550 Guadalajara, Jal.'},
@@ -10,11 +11,11 @@ const destinos = [
     {nombre: 'Expo Guadalajara', direccion: 'Av. Mariano Otero 1499, Verde Valle, 44550 Guadalajara, Jal.'},
 ]
 const vehiculos = [
-    {nombre: 'Nissan Versa Sense TM', minutos: 5, imagen: '../data/cars/nissan_2023_versa_sense.png'},
-    {nombre: 'Ford Explorer XLT', minutos: 7, imagen: '../data/cars/ford_2023_explorer.png'}
+    {nombre: 'Nissan Versa Sense TM', minutos: 5, imagen: 'https://imgur.com/aWeyhz5.jpg', transmision: 'automatica', pasajeros: 4, localizacion: 'Avenida Mariano Otero, 1499'},
+    {nombre: 'Ford Explorer XLT', minutos: 7, imagen: 'https://imgur.com/S82J1p1.jpg', transmision: 'automatica', pasajeros: 8, localizacion: 'Avenida Mariano Otero, 1499'}
 ]
 
-const SheetContent = ({height}) => {
+const SheetContent = ({navigation}) => {
     const [showInfo, setShowInfo] = useState(false);
     const [text, setText] = useState('');
     const LocationSelectToggle = () => {
@@ -24,21 +25,18 @@ const SheetContent = ({height}) => {
         if(showInfo){
             return(
                 <View style = {styles.container}>
-                    <TouchableOpacity style = {styles.icon} ctiveOpacity={0.7} onPress={LocationSelectToggle}>
+                    <TouchableOpacity style = {styles.icon} ActiveOpacity={0.7} onPress={LocationSelectToggle}>
                         <Ionicons name={'arrow-back-outline'} size={24} color={theme.colors.dark}/>
                     </TouchableOpacity>
                     <Text style = {styles.h1}>Vehículos cerca</Text>
-                    {/*
                     <FlatList
+                    style = {{width: '100%'}}
                     data={vehiculos}
                     renderItem={({ item }) => (
-                        <TouchableOpacity activeOpacity={0.7} onPress={LocationSelectToggle}>
-                            <Destino nombre={item.nombre} direccion={item.direccion} />
-                        </TouchableOpacity>
+                        <Vehiculo nombre={item.nombre} minutos={item.minutos} imagen={item.imagen} transmision={item.transmision} pasajeros = {item.pasajeros} localizacion = {item.localizacion} navigation={navigation}/>
                     )}
                     keyExtractor={(item, index) => index.toString()}
                     />
-                    */}
                 </View>
             )
         }
@@ -75,6 +73,7 @@ const SheetContent = ({height}) => {
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
+        width: '100%'
     },
     searchInputText:{
       color: "white",

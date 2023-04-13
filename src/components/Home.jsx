@@ -5,7 +5,7 @@ import MapView, {Marker} from 'react-native-maps'
 import RBSheet from "react-native-raw-bottom-sheet";
 import SheetContent from './RenderContent';
 
-export default function Home() {
+export default function Home({navigation}) {
     const refRBSheet = useRef();
   const [origin, setOrigin] =  useState({
     latitude: 20.654522,
@@ -49,7 +49,7 @@ export default function Home() {
             }
           }}
         >
-        <SheetContent/>
+        <SheetContent navigation={navigation}/>
         </RBSheet>
     </View>
   )

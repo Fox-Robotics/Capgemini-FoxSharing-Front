@@ -5,7 +5,7 @@ import LogIn from "./src/components/LogIn.jsx";
 import Registro from "./src/components/Registro.jsx";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import TwoFactorAuth from "./src/components/TwoFactorAuth.jsx";
-import SheetContent from "./src/components/RenderContent.jsx";
+import CarInfo from "./src/components/CarInfo.jsx";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +17,7 @@ export default function App() {
         <Stack.Screen name = "Registro" component = {Registro}/>
         <Stack.Screen name = "Auth" component = {TwoFactorAuth}/>
         <Stack.Screen name = "Main" component = {Main}/>
+        <Stack.Screen name = "Car" component = {CarInfo}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
