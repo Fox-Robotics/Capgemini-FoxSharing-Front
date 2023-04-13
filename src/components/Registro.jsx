@@ -4,10 +4,11 @@ import theme from "../theme";
 import Constants from 'expo-constants';
 
 export default function Registro({navigation}) {
-    const [username, setUsername] = useState("");
+    const [name, setName] = useState("");
+    const [FLname, setFLName] = useState("");
+    const [SLname, setSLName] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
     const [verifyPassword, setVerifyPassword] = useState("");
     
     function manejoRegistro() {
@@ -17,7 +18,7 @@ export default function Registro({navigation}) {
             return;
         }
         // Continua con el proceso de registro
-        navigation.navigate("Auth");
+        navigation.navigate("Auth", {name, FLname, SLname, email, password});
     }
     
     return(
@@ -27,21 +28,26 @@ export default function Registro({navigation}) {
             <TextInput
               style = {styles.input}
               placeholder="Nombre"
-              value = {username}
-              onChangeText={(text) => setUsername(text)}
+              value = {name}
+              onChangeText={(text) => setName(text)}
+            />
+            <TextInput
+              style = {styles.input}
+              placeholder="Primer apellido"
+              value = {FLname}
+              onChangeText={(text) => setFLName(text)}
+            />
+            <TextInput
+              style = {styles.input}
+              placeholder="Segundo apellido"
+              value = {SLname}
+              onChangeText={(text) => setSLName(text)}
             />
             <TextInput
               style = {styles.input}
               placeholder="Correo"
               value = {email}
               onChangeText={(text) => setEmail(text)}
-            />
-            <TextInput
-              style = {styles.input}
-              placeholder="Teléfono"
-              value = {phone}
-              onChangeText={(text) => setPhone(text)}
-              secureTextEntry
             />
             <TextInput
               style = {styles.input}

@@ -1,14 +1,35 @@
 import React, { useState } from 'react';
-import { View, TextInput, Text, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { Alert, View, TextInput, Text, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import theme from '../theme';
 import Login from './LoginBoton';
+import axios from 'axios';
+
+const logInUser = async (email, password, navigation) => {
+    try{
+        const response = await axios.post('https://foxsharing.azurewebsites.net/login', {
+            email: email,
+            password: password,
+        });
+        alert(response.email);
+        console.log(response.data);
+        await AsyncStorage.setItem('token', response.data.token);
+        navigation.navigate('Main');
+    }
+    catch (error){
+        //Alert.alert('Error en inicio de sesión', 'Intente de nuevo.')
+        console.error(error);
+    }
+}
 
 export default function LogIn({navigation}) {
     const [email, setEmail] = useState('');
     const [password, setPass] = useState('');
     const login = () => {
         //Funcionalidad de logIn
-        navigation.navigate("Main");
+        //Temporal
+        navigation.navigate('Main');
+        logInUser(email, password, navigation);
     };
     return(
         <View style = {styles.container}>
@@ -24,6 +45,7 @@ export default function LogIn({navigation}) {
             placeholder='Contraseña'
             onChangeText={(text) => setPass(text)}
             value={password}
+            secureTextEntry
             />
             <Login onPress={login}/>
             <View style = {styles.textWrapper}>

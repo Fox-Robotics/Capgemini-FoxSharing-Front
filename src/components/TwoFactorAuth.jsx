@@ -2,16 +2,35 @@ import React, { useState } from "react";
 import { SafeAreaView, Text, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 import Constants from 'expo-constants';
 import theme from "../theme";
+import axios from 'axios';
 
-export default function TwoFactorAuth({navigation}) {
-  const [code, setCode] = useState("");
-  const [message, setMessage] = useState("");
+const registro = async(name, FLname, SLname, email, password) => {
+    try{
+        const response = await axios.post('https://foxsharing.azurewebsites.net/register', {
+            name: name,
+            firstLastName: FLname,
+            secondLastName: SLname,
+            password: password,
+            email: email,
+        });
+        console.log(response.data);
+    }
+    catch (error){
+        console.error(error);
+    }
+}
 
-  function handleVerify() {
-    // Lógica de verificación
+export default function TwoFactorAuth({route, navigation}) {
+    const [code, setCode] = useState("");
+    const [message, setMessage] = useState("");
+    const {name, FLname, SLname, email, password} = route.params;
+    
+    function handleVerify() {
+        // Lógica de verificación
     const verificationCode = "123456";
     if (code === verificationCode) {
-      navigation.navigate("Login");
+        registro(name, FLname, SLname, email, password);
+        navigation.navigate("Login");
     } else {
       setMessage("Error en la verificación. Intente de nuevo.");
     }
