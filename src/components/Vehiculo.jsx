@@ -4,12 +4,14 @@ import theme from '../theme'
 
 const Vehiculo = ({refRBSheet, nombre, minutos, imagen, transmision, pasajeros, localizacion, navigation}) => {
     return(
-        <View style = {styles.container}>
-            <Image source={{ uri: imagen }} style={styles.car} />
-            <TouchableOpacity style = {styles.textContainer} activeOpacity={0.7} onPress={() => {refRBSheet.current.close();  navigation.navigate('Car',{nombre, minutos, imagen, transmision, pasajeros, localizacion})  }}>
-                <View>
-                    <Text style = {styles.name}>{nombre}</Text>
-                    <Text>{minutos} minutos caminando</Text>
+        <View>
+            <TouchableOpacity activeOpacity={0.7} onPress={() => {refRBSheet.current.close();  navigation.navigate('Car',{nombre, minutos, imagen, transmision, pasajeros, localizacion})  }}>
+                <View style = {styles.container}>
+                    <Image source={{ uri: imagen }} style={styles.car} />
+                        <View style = {styles.textContainer}>
+                            <Text style = {styles.name}>{nombre}</Text>
+                            <Text>{minutos} minutos caminando</Text>
+                        </View>
                 </View>
             </TouchableOpacity>
         </View>
