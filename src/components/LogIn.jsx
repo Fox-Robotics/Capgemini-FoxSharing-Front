@@ -50,9 +50,9 @@ const styles = StyleSheet.create(
             justifyContent: 'center'
         },
         input: {
-            marginVertical: 5,
+            marginVertical: "2%",
             borderWidth: 1,
-            padding: 3,
+            padding: "2%",
             paddingHorizontal: 10,
             borderColor: 'gray',
             width: '90%',
