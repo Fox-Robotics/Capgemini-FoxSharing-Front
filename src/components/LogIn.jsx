@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, View, TextInput, Text, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, TextInput, Text, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import theme from '../theme';
 import Login from './LoginBoton';
@@ -11,7 +11,6 @@ const logInUser = async (email, password, navigation) => {
             email: email,
             password: password,
         });
-        alert(response.email);
         console.log(response.data);
         await AsyncStorage.setItem('token', response.data.token);
         navigation.navigate('Main');
@@ -27,7 +26,6 @@ export default function LogIn({navigation}) {
     const [password, setPass] = useState('');
     const login = () => {
         //Funcionalidad de logIn
-        //Temporal
         navigation.navigate('Main');
         logInUser(email, password, navigation);
     };

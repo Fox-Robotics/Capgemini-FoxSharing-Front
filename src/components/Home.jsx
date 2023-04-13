@@ -6,7 +6,7 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import SheetContent from './RenderContent';
 import * as Location from "expo-location";
 
-export default function Home() {
+export default function Home({navigation}) {
   const [location, setLocation] = useState({
     latitude: 20.654522,
     longitude: -103.392398
@@ -66,7 +66,7 @@ export default function Home() {
             }
           }}
         >
-        <SheetContent/>
+        <SheetContent navigation={navigation}/>
         </RBSheet>
     </View>
   )

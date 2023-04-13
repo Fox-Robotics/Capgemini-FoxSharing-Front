@@ -13,6 +13,7 @@ const theme = {
   size: {
     default: 16,
     h1: 32,
+    h2: 18,
   },
   fontWeights: {
     normal: "400",
